@@ -14,8 +14,9 @@ ADD . /app
 
 # 安装依赖
 RUN pip install --upgrade pip setuptools==57.5.0
+RUN pip install pip==23.2.1
 RUN pip install --user -r requirements.txt
-RUN pip install --upgrade pip
+
 
 #RUN pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple \
 #&& pip config set global.trusted-host mirrors.cloud.tencent.com \

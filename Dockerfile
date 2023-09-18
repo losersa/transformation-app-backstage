@@ -13,7 +13,7 @@ WORKDIR /app
 ADD . /app
 
 # 安装依赖
-RUN #pip install Flask gunicorn
+RUN pip install --upgrade pip setuptools==57.5.0
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 RUN pip install --upgrade pip
 

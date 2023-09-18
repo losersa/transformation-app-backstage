@@ -2,7 +2,7 @@
 # https://hub.docker.com/_/python
 FROM python:3.8-alpine
 
-RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
+#RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
 
 #这里主要是添加一下作者信息
 MAINTAINER 1152508446@qq.com

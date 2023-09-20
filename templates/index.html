@@ -7,6 +7,7 @@
 <body>
 <form action="/upload/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
+{#    <input type="text" name="trans">#}
     <input type="file" name="File">
     <br>
     <input type="submit" value="上传">

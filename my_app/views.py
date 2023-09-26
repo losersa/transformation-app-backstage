@@ -44,15 +44,18 @@ class pdftopil():
             #                                          userpw=USERPWD, use_cropbox=USE_CROPBOX, strict=STRICT)
 
             print("Time taken: " + str(time.time() - start_time))
+            
+            img_list = []
             for i, image in enumerate(pil_images):
                 fname = self.dir_output + self.uploadfile +"image" + str(i) + ".png"
                 image.save(fname, "PNG")
                 print(fname)
                 img = self.ret_img(image)
+                img_list.append(img)
             status = "success"
         except:
             status = "fail"
-        return img
+        return img_list
         # return img
     # def post(self, request):
     #     return JsonResponse({'Method': "POST"})
@@ -94,7 +97,6 @@ class upload_files(View):
             pil_images = pdftopil(uploadfile.name)
             pngfile = pil_images.to_png()
             # print(pngfile)
-
             # for i in request.img_list:
             #     print(i['file_name'])
             # pdf_to_jpg(uploadfile)

@@ -6,7 +6,7 @@
 """
 import io
 
-import aspose.pdf as ap
+# import aspose.pdf as ap
 DIR_INPUT = "../upload_files/"
 DIR_OUTPUT = "../output_files/"
 file_name = "教育部学籍在线验证报告_郭欣然.pdf"
@@ -37,7 +37,7 @@ from PIL import Image
 import time
 
 # DECLARE CONSTANTS
-PDF_PATH = "../upload_files/教育部学籍在线验证报告_郭欣然.pdf"
+PDF_PATH = "../upload_files/python2023final(1).pdf"
 DPI = 200
 OUTPUT_FOLDER = None
 FIRST_PAGE = None

@@ -18,14 +18,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+from djangoProject import settings
 from my_app import views
 
 urlpatterns = [
     path('', views.index),
-    path('upload/', views.upload_files.as_view())
+    path('upload/', views.upload_files.as_view()),
+    # path('pdf2img/', views.pdftopil.as_view(), name='pdf2img'),
 ]
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -27,14 +27,15 @@ class pdftopil():
     def __init__(self, uploadfile):
         self.uploadfile = uploadfile
     def ret_img(self, img):
-        f = io.BytesIO()
-        img.save(f, 'PNG')
-        # f.seek(0)
-        im_io_png = base64.b64encode(f.getvalue()).decode("UTF-8")
+        file_img = open(img, "rb")
+        img = file_img.read()
+        # f = io.BytesIO()
+        # img.save(f, 'PNG')
+        # # f.seek(0)
+        # im_io_png = base64.b64encode(f.getvalue())
         # im_io_png = base64.b64encode(img)
-        # print(im_io_png)
-        img_tag = mark_safe(f"img src='data:image/png;base64,{im_io_png}")
-        return img_tag
+        # img_tag = mark_safe(f"img src='data:image/png;base64,{im_io_png}")
+        return img
     def to_png(self):
         try:
             start_time = time.time()
@@ -44,15 +45,17 @@ class pdftopil():
             #                                          userpw=USERPWD, use_cropbox=USE_CROPBOX, strict=STRICT)
 
             print("Time taken: " + str(time.time() - start_time))
+            img_list = []
             for i, image in enumerate(pil_images):
                 fname = self.dir_output + self.uploadfile +"image" + str(i) + ".png"
                 image.save(fname, "PNG")
                 print(fname)
-                img = self.ret_img(image)
+                img = self.ret_img(fname)
+                img_list.append(img)
             status = "success"
         except:
             status = "fail"
-        return img
+        return img_list
         # return img
     # def post(self, request):
     #     return JsonResponse({'Method': "POST"})
